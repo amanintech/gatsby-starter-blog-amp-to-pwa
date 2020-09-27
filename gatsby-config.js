@@ -3,7 +3,7 @@ module.exports = {
     title: `Jamstacking with AMP`,
     author: `Aman Sharma`,
     description: `Demo of Jamstacking with AMP`,
-    siteUrl: `https://csb-h8i1l-jeuqvlbs2.vercel.app/`,
+    siteUrl: `https://h8i1l.sse.codesandbox.io/`,
     social: {
       twitter: `amanintech`
     }
@@ -116,9 +116,9 @@ module.exports = {
         gaConfigPath: "gaConfig.json",
         dist: "public/amp",
         serviceWorker: {
-          src: "https://csb-h8i1l-jeuqvlbs2.vercel.app/sw.js",
+          src: "https://h8i1l.sse.codesandbox.io/sw.js",
           "data-iframe-src":
-            "https://csb-h8i1l-jeuqvlbs2.vercel.app/amp-install-serviceworker.html",
+            "https://h8i1l.sse.codesandbox.io/amp-install-serviceworker.html",
           layout: "nodisplay"
         }
       }
