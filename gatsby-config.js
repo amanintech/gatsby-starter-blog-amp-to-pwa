@@ -3,25 +3,25 @@ module.exports = {
     title: `Jamstacking with AMP`,
     author: `Aman Sharma`,
     description: `Demo of Jamstacking with AMP`,
-    siteUrl: `https://gatsby-starter-blog-amp-to-pwa.netlify.com/`,
+    siteUrl: `https://csb-h8i1l-jeuqvlbs2.vercel.app/`,
     social: {
-      twitter: `amanintech`,
-    },
+      twitter: `amanintech`
+    }
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
+        name: `blog`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
+        name: `assets`
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -30,20 +30,20 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
-            },
+              maxWidth: 590
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-        ],
-      },
+          `gatsby-remark-smartypants`
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -51,7 +51,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
+      }
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -59,15 +59,17 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMarkdownRemark.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + 'posts' + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + 'posts' + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                })
-              })
+                  url:
+                    site.siteMetadata.siteUrl + "posts" + edge.node.fields.slug,
+                  guid:
+                    site.siteMetadata.siteUrl + "posts" + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }]
+                });
+              });
             },
             query: `
             {
@@ -90,7 +92,7 @@ module.exports = {
             }
           `,
             output: "/rss.xml",
-            title: "Gatsby RSS Feed",
+            title: "Gatsby RSS Feed"
           }
         ]
       }
@@ -104,19 +106,20 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
-      },
+        icon: `content/assets/gatsby-icon.png`
+      }
     },
     {
-      resolve: 'gatsby-plugin-html2amp',
+      resolve: "gatsby-plugin-html2amp",
       options: {
-        files: ['posts/**/index.html', 'index.html'],
-        gaConfigPath: 'gaConfig.json',
-        dist: 'public/amp',
+        files: ["posts/**/index.html", "index.html"],
+        gaConfigPath: "gaConfig.json",
+        dist: "public/amp",
         serviceWorker: {
-          src: 'https://gatsby-starter-blog-amp-to-pwa.netlify.com/sw.js',
-          'data-iframe-src': 'https://gatsby-starter-blog-amp-to-pwa.netlify.com/amp-install-serviceworker.html',
-          layout: 'nodisplay'
+          src: "https://csb-h8i1l-jeuqvlbs2.vercel.app/sw.js",
+          "data-iframe-src":
+            "https://csb-h8i1l-jeuqvlbs2.vercel.app/amp-install-serviceworker.html",
+          layout: "nodisplay"
         }
       }
     },
@@ -125,8 +128,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-  ],
-}
+        pathToConfigModule: `src/utils/typography`
+      }
+    }
+  ]
+};
